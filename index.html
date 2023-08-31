@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='styles.css') }}">
+    <title>IP Geolocation</title>
+</head>
+<body>
+    <div class="container">
+        <h1>IP Locator</h1>
+        <form method="post">
+            <label for="user_ip">Enter an IP address:</label>
+            <input type="text" id="user_ip" name="user_ip" required>
+            <button type="submit">Get Location</button>
+        </form>
+        {% if error_message %}
+        <p class="error">{{ error_message }}</p>
+        {% endif %}
+        {% if location_info %}
+        <h2>Location Information</h2>
+        <p><strong>City:</strong> {{ location_info.city }}</p>
+        <p><strong>Region:</strong> {{ location_info.region }}</p>
+        <p><strong>Country:</strong> {{ location_info.country }}</p>
+        <p><strong>Latitude:</strong> {{ location_info.loc.split(',')[0] }}</p>
+        <p><strong>Longitude:</strong> {{ location_info.loc.split(',')[1] }}</p>
+        {% endif %}
+        
+        <!-- Display Previous Searches -->
+        {% if previous_searches %}
+        <h2>Previous Searches</h2>
+        <ul>
+            {% for search in previous_searches %}
+            <li>{{ search.ip_address }} - {{ search.timestamp }}</li>
+            {% endfor %}
+        </ul>
+        {% endif %}
+    </div>
+</body>
+</html>

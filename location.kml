@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+    <kml xmlns="http://www.opengis.net/kml/2.2">
+      <Placemark>
+        <name>Atlanta</name>
+        <description>City: Atlanta, Country: US</description>
+        <Point>
+          <coordinates>-84.3757,33.7718</coordinates>
+        </Point>
+      </Placemark>
+    </kml>
+    
